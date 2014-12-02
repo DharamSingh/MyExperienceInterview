@@ -1,8 +1,6 @@
 package RecordAndMean;
 import java.io.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class Record {
 	public int min;
@@ -55,17 +53,11 @@ public class Main {
 		}
 		return (count/arr.size());
 	}
-	void printarr() {
-		Iterator<Record> it = arr.iterator();
-		while(it.hasNext()) {
-			Record temp = it.next();
-			System.out.println(temp.value + " " + temp.min+"m "+ temp.sec+"s");
-		}
-		System.out.println();
-	}
+	
     void process() throws IOException{
-    	X=4;
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	System.out.println("Please input the window size : ");
+    	X = Integer.parseInt(br.readLine());
     	String command;
     	String input[];
     	while(true) {
@@ -80,13 +72,10 @@ public class Main {
     			removePrevious(X, r);
     			System.out.println(getMean());
     		}
-    		printarr();
     	}
     	
 	}
     
-    
-   
 	public static void main(String args[]) throws IOException {
 		Main m = new Main();
 		m.process();
